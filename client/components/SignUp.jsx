@@ -1,6 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+
 
 function SignUp() {
   const [username, setUsername] = useState('');
@@ -45,42 +54,94 @@ function SignUp() {
     }
   };
 
-  return (
-    <div className="auth-form-container">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder="First Name"
-        />
-        <input
-          type="text"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          placeholder="Last Name"
-        />
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
-        />
-        {userNameError && <div className="error"> {userNameError} </div>}
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        {passwordError && <div className="error"> {passwordError} </div>}
-        <button type="submit">Register</button>
-      </form>
-      <Link to="/login">
-        <button className="link-btn">
-          I made a terrible mistake, I have an account!
-        </button>
-      </Link>
+  return   (
+    <div className="auth-form-container" style={{ transitionDelay: '100ms' }}>
+      <Container component="main" maxWidth="xs">
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            {/* <LockOutlinedIcon /> */}
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  name="firstName"
+                  autoComplete="given-name"
+                  autoFocus
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                  autoComplete="family-name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </Grid>
+            </Grid>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Username"
+              name="username"
+              autoComplete="username"
+              autoFocus
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            {userNameError && <div className="error"> {userNameError} </div>}
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="new-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {passwordError && password.length <= 4 && (
+              <div className="error"> {passwordError} </div>
+            )}
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="/signin" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      </Container>
     </div>
   );
 }

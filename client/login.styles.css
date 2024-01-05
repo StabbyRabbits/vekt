@@ -32,7 +32,7 @@ input {
     border-radius: 5px;
   }
 
-button {
+/* button {
     z-index: 5;
     border: none;
     margin: 0.5rem 0;
@@ -42,7 +42,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     color: #949494;
-}
+} */
 
 
 .link-btn {
