@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import Draggable from 'react-draggable';
+import Draggable from 'react-draggable';
 
 function FoodLog(props) {
   
   // const username = props.getCookie('username'); //not sure what this is -sean 20240103
   //const username = "sean"
+  const body = window.loginInfo;
+  const username = body;
+  console.log("username props: ", body);
 
   const [entryData, setEntryData] = useState({
     username: username,
@@ -15,8 +18,7 @@ function FoodLog(props) {
     diaPressure: "",
     time: "",
   })
-  const {body} = window.loginInfo;
-  console.log("username props: ", body);
+
 
   const navigate = useNavigate();
   const handleChange = (e) => {

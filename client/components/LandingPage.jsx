@@ -16,13 +16,13 @@ const LandingPage = () => {
     navigate('/signup');
   };
   return (
-    <div id="landing" style={{ position: 'relative' }}>
+    <div id="landing" style={{ position: 'relative', backgroundColor:'#e5e5e5', height: '55vw'}}>
       <NeonJobs />
       <a
         href="https://imgur.com/6CMrUbD"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ position: 'absolute', top: 30, left: 550, zIndex: 1 }}
+        style={{ position: 'absolute', top: 30, left: 450, zIndex: 1 }}
       >
         <img
           src="https://i.imgur.com/6CMrUbD.png"
@@ -31,12 +31,13 @@ const LandingPage = () => {
           style={{ width: '100%', height: '100%', top: 30, marginLeft: 100 }}
         />
       </a>
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={2} justifyContent="center" sx={{ marginTop: '50px' }}>
         <Grid item>
           <Button
             variant="text"
-            color="primary"
-            sx={{ width: '200px', fontSize: '1.5rem' }}
+            sx={{ width: '200px', fontSize: '1.5rem', color: '#96f9d2', backgroundColor: '#ff5ea4', '&:hover': {
+              color: '#ff5ea4', 
+            },}}
             onClick={handleLogin}
           >
             Log In
@@ -44,9 +45,10 @@ const LandingPage = () => {
         </Grid>
         <Grid item>
           <Button
-            variant="text"
-            color="primary"
-            sx={{ width: '200px', fontSize: '1.5rem' }}
+            variant="outlined"
+            sx={{ width: '200px', fontSize: '1.5rem', color: '#96f9d2', backgroundColor: '#ff5ea4', '&:hover': {
+              color: '#ff5ea4', 
+            },}}
             onClick={handleSignUp}
           >
             Sign Up
@@ -55,8 +57,9 @@ const LandingPage = () => {
         <Grid item>
           <Button
             variant="text"
-            color="primary"
-            sx={{ width: '200px', fontSize: '1.5rem' }}
+            sx={{ width: '200px', fontSize: '1.5rem', color: '#96f9d2', backgroundColor: '#ff5ea4', '&:hover': {
+              color: '#ff5ea4', 
+            },}}
           >
             About
           </Button>

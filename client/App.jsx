@@ -19,6 +19,8 @@ function App() {
       <Route exact path='/signup' element={<SignUp />} />
       <Route exact path='/foodlog' element={<FoodLog />} />
       <Route exact path='/games' element={<Games />}/>
+      <Route exact path='/about' element={<About />}/>
+      <Route exact path='/contact' element={<Contact />}/>
       <Route exact path='/memoryGame' element={<MemoryGame />} />
     </Routes>
   );
