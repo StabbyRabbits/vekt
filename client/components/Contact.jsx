@@ -12,6 +12,7 @@ const Contact = () => {
         <div className="card-body">
           <h5 className="card-title">Name</h5>
           <p className="card-text">Amir Munoz</p>
+          <img src="https://xf-assets.pokecharms.com/data/attachment-files/2015/10/236932_Bulbasaur_Picture.png" alt="Profile" style={{ width: '100px', height: '100px' }} />
         </div>
         <div className="card-body">
           <h5 className="card-title">Email</h5>
@@ -24,6 +25,7 @@ const Contact = () => {
         <div className="card-body">
           <h5 className="card-title">Name</h5>
           <p className="card-text">Jarod Crawford</p>
+          <img src="https://xf-assets.pokecharms.com/data/attachment-files/2015/10/236932_Bulbasaur_Picture.png" alt="Profile" style={{ width: '100px', height: '100px' }} />
         </div>
         <div className="card-body">
           <h5 className="card-title">Email</h5>
@@ -36,6 +38,7 @@ const Contact = () => {
         <div className="card-body">
           <h5 className="card-title">Name</h5>
           <p className="card-text">Sean Nguyen</p>
+          <img src="https://xf-assets.pokecharms.com/data/attachment-files/2015/10/236932_Bulbasaur_Picture.png" alt="Profile" style={{ width: '100px', height: '100px' }} />
         </div>
         <div className="card-body">
           <h5 className="card-title">Email</h5>
@@ -48,6 +51,7 @@ const Contact = () => {
         <div className="card-body">
           <h5 className="card-title">Name</h5>
           <p className="card-text">Solomon Moon</p>
+          <img src="https://xf-assets.pokecharms.com/data/attachment-files/2015/10/236932_Bulbasaur_Picture.png" alt="Profile" style={{ width: '100px', height: '100px' }} />
         </div>
         <div className="card-body">
           <h5 className="card-title">Email</h5>

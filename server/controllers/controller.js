@@ -88,9 +88,8 @@ controller.verifyUser = async (req, res, next) => {
 
 controller.getInfo = async (req,res,next) => {
     const { username } = req.body;
-
     try{
-        const data = await Info.findAll({username: username}) //compete logic for "/homepage" sugar tracking card
+        const data = await Info.find({where: {username: username} }) //compete logic for "/homepage" sugar tracking card
         if (data) {
             res.locals.data = data;
             return next();

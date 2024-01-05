@@ -36,7 +36,7 @@ const LogoAnimation = () => {
       offset: 550
     }).add({
       targets: '#logo-text',
-      translateX: ['-100%', 0],
+      translateX: ['-10%', 0],
       opacity: [0, 1],
       duration: 1000,
       easing: 'easeOutExpo',
@@ -53,15 +53,15 @@ const LogoAnimation = () => {
   return (
     <div className="site-logo">
       <figure id="logo">
-        <svg width="100%" height="100%" viewBox="0 0 148 128">
+      <svg width="148" height="128" viewBox="0 0 500 500">
           <defs>
             <mask id="circle-mask">
-              <rect fill="white" width="100%" height="100%"></rect>
+              <rect fill="white" width="10%" height="10%"></rect>
               <circle id="logo-mask" fill="black" cx="120" cy="96" r="28"></circle>
             </mask>
           </defs>
-          <polygon id="logo-hexagon" fill="#00B4FF" points="64 128 8.574 96 8.574 32 64 0 119.426 32 119.426 96" mask="url(#circle-mask)"></polygon>
-          <circle id="logo-circle" fill="#3F3C3C" cx="120" cy="96" r="20"></circle>
+          <polygon id="logo-hexagon" fill="#00B4FF" points="64 128 12 96 12 32 64 0 116 32 116 96" mask="url(#circle-mask)"></polygon>
+<circle id="logo-circle" fill="#3F3C3C" cx="120" cy="96" r="25"></circle>
         </svg>
       </figure>
       <div className="site-title">

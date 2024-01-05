@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-import style from '../login.styles.css'
+import style from '../login.styles.css';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -42,14 +42,11 @@ function Login(props) {
         body: JSON.stringify({ username, password }),
       };
 
-      window.loginInfo = loginInfo.body;
-     
+      console.log('=> Inside Login.jsx try');
 
-      console.log("=> Inside Login.jsx try")
-
-      const reponse = await fetch('/api/login', loginInfo);
+      const reponse = await fetch('/api/signin', loginInfo);
       const data = await reponse.json();
-      //console.log('sent to the front', data.verified);
+      console.log('sent to the front', data.verified);
 
       if (data.verified) {
         console.log('login success');
@@ -62,7 +59,7 @@ function Login(props) {
 
   return (
     <div className="auth-form-container" style={{ transitionDelay: '100ms' }}>
-        <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
@@ -78,9 +75,15 @@ function Login(props) {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
+            <TextField
               margin="normal"
+              type="text"
               required
               fullWidth
               id="username"
@@ -89,15 +92,16 @@ function Login(props) {
               autoComplete="username"
               autoFocus
               onChange={(e) => setUsername(e.target.value)}
-          className={'inputBox'}
+              className={'inputBox'}
             />
-        {userNameError ? (
-          <div className="error"> {userNameError} </div>
-        ) : (
-          ''
-        )}
-        <TextField
+            {userNameError ? (
+              <div className="error"> {userNameError} </div>
+            ) : (
+              ''
+            )}
+            <TextField
               margin="normal"
+              type="password"
               required
               fullWidth
               id="password"
@@ -108,12 +112,12 @@ function Login(props) {
               onChange={(e) => setPassword(e.target.value)}
               className={'inputBox'}
             />
-        {passwordError && password.length <= 4 ? (
-          <div className="error"> {passwordError} </div>
-        ) : (
-          ''
-        )}
-        <FormControlLabel
+            {passwordError && password.length <= 4 ? (
+              <div className="error"> {passwordError} </div>
+            ) : (
+              ''
+            )}
+            <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />

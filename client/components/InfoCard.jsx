@@ -13,7 +13,7 @@ function InfoCard() {
   return (
     <div className="entries-container">
       Entries
-      <div className="entries">
+      <div className="entries" alignContent="center">
         <p>Date:</p>
         <p>Blood sugar:</p>
         <p>Blood Pressure:</p>

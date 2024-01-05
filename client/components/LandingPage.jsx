@@ -15,29 +15,67 @@ const LandingPage = () => {
   const handleSignUp = () => {
     navigate('/signup');
   };
+
+  const handleAbout = () => {
+    navigate('/about');
+  };
+
   return (
-    <div id="landing" style={{ position: 'relative', backgroundColor:'#e5e5e5', height: '55vw'}}>
+    <div
+      id="landing"
+      style={{
+        position: 'relative',
+        backgroundColor: '#e5e5e5',
+        height: '100vh',
+      }}
+    >
       <NeonJobs />
       <a
         href="https://imgur.com/6CMrUbD"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ position: 'absolute', top: 30, left: 450, zIndex: 1 }}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'flex-start',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 1,
+        }}
       >
         <img
           src="https://i.imgur.com/6CMrUbD.png"
           alt="Neon Jobs"
           title="source: imgur.com"
-          style={{ width: '100%', height: '100%', top: 30, marginLeft: 100 }}
+          style={{
+            maxWidth: '90%',
+            maxHeight: '90%',
+            zIndex: 2,
+          }}
         />
       </a>
-      <Grid container spacing={2} justifyContent="center" sx={{ marginTop: '50px' }}>
+      <Grid
+        container
+        spacing={2}
+        justifyContent="center"
+        sx={{ marginTop: '50px' }}
+      >
         <Grid item>
           <Button
             variant="text"
-            sx={{ width: '200px', fontSize: '1.5rem', color: '#96f9d2', backgroundColor: '#ff5ea4', '&:hover': {
-              color: '#ff5ea4', 
-            },}}
+            sx={{
+              width: '200px',
+              fontSize: '1.5rem',
+              color: '#96f9d2',
+              backgroundColor: '#ff5ea4',
+              '&:hover': {
+                color: '#ff5ea4',
+              },
+            }}
+            style={{ zIndex: 3 }}
             onClick={handleLogin}
           >
             Log In
@@ -46,9 +84,16 @@ const LandingPage = () => {
         <Grid item>
           <Button
             variant="outlined"
-            sx={{ width: '200px', fontSize: '1.5rem', color: '#96f9d2', backgroundColor: '#ff5ea4', '&:hover': {
-              color: '#ff5ea4', 
-            },}}
+            sx={{
+              width: '200px',
+              fontSize: '1.5rem',
+              color: '#96f9d2',
+              backgroundColor: '#ff5ea4',
+              '&:hover': {
+                color: '#ff5ea4',
+              },
+            }}
+            style={{ zIndex: 3 }}
             onClick={handleSignUp}
           >
             Sign Up
@@ -57,9 +102,17 @@ const LandingPage = () => {
         <Grid item>
           <Button
             variant="text"
-            sx={{ width: '200px', fontSize: '1.5rem', color: '#96f9d2', backgroundColor: '#ff5ea4', '&:hover': {
-              color: '#ff5ea4', 
-            },}}
+            sx={{
+              width: '200px',
+              fontSize: '1.5rem',
+              color: '#96f9d2',
+              backgroundColor: '#ff5ea4',
+              '&:hover': {
+                color: '#ff5ea4',
+              },
+            }}
+            style={{ zIndex: 3 }}
+            onClick={handleAbout}
           >
             About
           </Button>

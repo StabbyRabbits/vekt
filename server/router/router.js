@@ -23,7 +23,7 @@ router.post('/signup', controller.createUser, (req, res) => {
   return res.status(200).send('passing through router.post/signup');
 });
 
-router.post('/login', controller.verifyUser, (req, res) => {
+router.post('/signin', controller.verifyUser, (req, res) => {
   return res.status(200).send('passing through router.post/login');
 });
 router.post('/entry', controller.createEntry, (req, res) => {
