@@ -1,27 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Draggable from 'react-draggable';
 
-function FoodLog(props) {
-  
-  // const username = props.getCookie('username'); //not sure what this is -sean 20240103
-  //const username = "sean"
-  const body = window.loginInfo;
-  const username = body;
-  console.log("username props: ", body);
+async function FoodLog(props) {
+  // const username = props.getCookie(username); //not sure what this is -sean 20240103
+  const username = "sean"
+  // console.log("username:", username)
+
+  console.log("cookies username test: ", username)
+  const [data, setData] = useState({})
 
   const [entryData, setEntryData] = useState({
-    username: username,
+    username: "",
     date: "",
+    time: "",
     bloodSugar: "",
     sysPressure: "",
     diaPressure: "",
-    time: "",
   })
 
+  try {
+    // const loginInfo = {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({username}),
+    // };
+
+    // console.log("=> handleChange at FoodLog")
+    // const reponse = await fetch('/api/signin', loginInfo);
+    // const data = await reponse.json();
+
+      
+
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const response = await fetch("/signin");
+          const jsonData = await response.json();
+          setData(jsonData);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      }
+  
+      fetchData();
+    }, []);
+
+    console.log('foodLog loginInfo data:', data);
+    console.log('foodLog username data:', data.currentUser);
+ 
+      
+
+  } catch (error) {
+    console.log('err getting username', error);
+  }
 
   const navigate = useNavigate();
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
+    console.log("EntryData found at handleChange:", entryData)
     const { name, value } = e.target;
     setEntryData((prevData) => ({
       ...prevData,
@@ -31,7 +67,7 @@ function FoodLog(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("EntryData found at handleSubmit:", entryData)
+    
     try {
       const options = {
         method: 'POST',
@@ -54,17 +90,19 @@ function FoodLog(props) {
       <div className="entries-form-container" component="form">
         <form className='entries-form' onSubmit={handleSubmit}>
           <div className='entries'>
-            <label className="dateLabel">
-              Date: {today.toLocaleDateString()}
+            <label className="dateLabel"> Date & Time: {/*today.toLocaleDateString()*/}
               <input className="inputBar" 
-                  value={entryData.time} 
-                  onChange={handleChange}/>
+                    type="date"
+                    name="date"
+                    value={entryData.date} 
+                    onChange={handleChange}/>
               <input className="inputBar" 
+                  type="time"
+                  name="time"
                   value={entryData.date} 
                   onChange={handleChange}/>
             </label>
-            <label className='bloodSugarInput'>
-              Blood Sugar:
+            <label className='bloodSugarInput'> Blood Sugar:
               <input className="inputBar"
                   name='bloodSugar'
                   value={entryData.bloodSugar} 
@@ -90,7 +128,7 @@ function FoodLog(props) {
           {/* <label>
             Time: <input value={time || ''} onChange={setTime}></input>
           </label> */}
-          <p>Before or After meal?</p>
+          {/* <p>Before or After meal?</p> */}
           {/* link to where you can see the images */}
           <Link to='/foodlog'>Meal Log</Link>
           <button className='save-entry-btn' onChange={handleChange}>

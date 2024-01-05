@@ -231,6 +231,12 @@ import createTheme from '@mui/material/styles/createTheme';
 import Navbar from './Navbar'; 
 import Chart from './Chart';
 import FoodLog from './FoodLog';
+import SugarGraph from './SugarGraph';
+import BloodPressureGraph from './BloodPressureGraph';
+// import { Navbar, items } from './Navbar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import Modal from './Modal';
 
 export default function Homepage() {
   const [showFoodLog, setShowFoodLog] = useState(false);

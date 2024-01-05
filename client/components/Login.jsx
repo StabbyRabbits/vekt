@@ -42,14 +42,12 @@ function Login(props) {
         body: JSON.stringify({ username, password }),
       };
 
-      window.loginInfo = loginInfo.body;
-     
-
+  
       console.log("=> Inside Login.jsx try")
 
-      const reponse = await fetch('/api/login', loginInfo);
+      const reponse = await fetch('/api/signin', loginInfo);
       const data = await reponse.json();
-      //console.log('sent to the front', data.verified);
+      console.log('=> data af Login.handleSubmit', data);
 
       if (data.verified) {
         console.log('login success');
@@ -62,33 +60,13 @@ function Login(props) {
 
   return (
     <div className="auth-form-container" style={{ transitionDelay: '100ms' }}>
-        <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            {/* <LockOutlinedIcon /> */}
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoComplete="username"
-              autoFocus
-              onChange={(e) => setUsername(e.target.value)}
+      <a href="https://imgur.com/6CMrUbD"><img src="https://i.imgur.com/6CMrUbD.png" title="source: imgur.com" /></a>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          onChange={(e) => setUsername(e.target.value)}
           className={'inputBox'}
             />
         {userNameError ? (
